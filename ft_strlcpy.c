@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samsaafi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/01 20:07:58 by samsaafi          #+#    #+#             */
+/*   Updated: 2023/11/01 20:08:03 by samsaafi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dest,const char *src, size_t size)
@@ -18,18 +30,4 @@ size_t	ft_strlcpy(char *dest,const char *src, size_t size)
 	}
 	dest[i] = '\0';
 	return (len);
-}
-
-
-int main() {
-    char dst[10];
-    const char *src = "Hello, world!";
-    size_t dst_size = sizeof(dst);
-
-    size_t result = ft_strlcpy(dst, src, dst_size);
-
-    printf("Copied string: %s\n", dst);
-    printf("Length of the source string: %zu\n", result);
-
-    return 0;
 }
