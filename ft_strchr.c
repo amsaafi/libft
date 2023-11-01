@@ -25,15 +25,3 @@ char *ft_strchr(const char *str, int c)
     }
     return (NULL);
 }
-
-int main() {
-    const char *str = "Hello, World!";
-    char *result = ft_strchr(str, 'o');
-
-    while (result != NULL) {
-        printf("Character found at position: %ld\n", result - str);
-        result = ft_strchr(result + 1, 'o');
-    }
-
-    return 0;
-}
