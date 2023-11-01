@@ -26,24 +26,3 @@ void ft_bzero(void *s, size_t n)
         i++;
     }
 }
-
-//DELTE THIS |||
-int main() {
-    int numbers[5] = {1, 2, 3, 4, 5};
-
-    printf("Before bzero: ");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", numbers[i]);
-    }
-    printf("\n");
-
-    ft_bzero(numbers, sizeof(numbers));
-
-    printf("After bzero: ");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", numbers[i]);
-    }
-    printf("\n");
-
-    return 0;
-}
