@@ -26,13 +26,3 @@ void *ft_memset (void *ptr, int value, size_t num)
     }
     return ptr;
 }
-
-int main() {
-    char str[20];
-    
-    ft_memset(str, 'A', 10);
-    
-    printf("str: %s\n", str);
-    
-    return 0;
-}
