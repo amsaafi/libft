@@ -23,6 +23,7 @@ int ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 void *ft_memchr(const void *prt, int value, size_t num);
 char *ft_strnstr(const char *str, const char *sub,size_t len);
 int ft_atoi(const char *nptr);
-char *strdup(const char *s);
+char *ft_strdup(const char *s);
+void *ft_calloc(size_t num, size_t size);
 
 #endif
