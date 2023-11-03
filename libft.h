@@ -18,7 +18,10 @@ int ft_toupper(int c);
 int ft_tolower(int c);
 char *ft_strchr(const char *str, int c);
 char *ft_strrchr(const char *str, int c);
+int	ft_strncmp(const char *s1, char *s2, size_t n);
 int ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 void *ft_memchr(const void *prt, int value, size_t num);
+char *ft_strnstr(const char *str, const char *sub,size_t len);
+
 
 #endif

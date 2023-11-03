@@ -1,15 +1,18 @@
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, char *s2, size_t n)
+char *ft_strnstr(const char *str, const char *sub,size_t len)
 {
-	size_t	i;
+    size_t sublen;
 
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
-	{
-		if (s1[i] > s2[i] || s1[i] < s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
+    sublen = ft_strlen(sub);
+    if(sublen == 0)
+        return str;
+    while (*str && len >= sublen)
+    {
+        if(ft_strncmp(str,sub,sublen) == 0)
+            return (char *)str;
+        *str++;
+        len--;
+    }
+    return NULL;
 }
