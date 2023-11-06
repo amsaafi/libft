@@ -30,7 +30,7 @@ int ft_count_words(const char *str, char sep)
     return (count);
 }
 
-char	**spiltwords(char const *s, char c, char **str, int count)
+char	**ft_spilt_words(char const *s, char c, char **str, int count)
 {
 	int	i;
 	int	j;
@@ -41,7 +41,7 @@ char	**spiltwords(char const *s, char c, char **str, int count)
 	j = 0;
 	len_words = 0;
 	while (s[j] && i < count)
-	i{
+	{
 		while (s[j] && s[j] == c)
 			j++;
 		start = j;
@@ -50,7 +50,7 @@ char	**spiltwords(char const *s, char c, char **str, int count)
 			j++;
 			len_words++;
 		}
-		str[i] = malloc((len_words + 1) * sizeof(char));
+		str[i] = ft_calloc(len_words + 1, sizeof(char));
 		ft_strlcpy(str[i], (s + start), len_words + 1);
 		len_words = 0;
 		i++;
@@ -59,17 +59,37 @@ char	**spiltwords(char const *s, char c, char **str, int count)
 	return (str);
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**arrstr;
 	int		count;
 
-	count = ft_count_words(str, c);
-	if (!str)
+	count = ft_count_words(s, c);
+	if (!s)
 		return (0);
-	arrstr = malloc((count + 1) * sizeof(char *));
-	if (!str)
+	arrstr = ft_calloc(count + 1, sizeof(char *));
+	if (!s)
 		return (0);
-	spiltwords(str, c, arrstr, count);
+	ft_spilt_words(s, c, arrstr, count);
 	return (arrstr);
+}
+
+int main() {
+    const char str[] = ",,,,,,,,,,,,,,,,,,,,abc,,,,,,,,,,,,,,,,helloworld,,,test, hello, this,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
+
+    int count = ft_count_words(str, ',');
+    printf("Number of words: %d\n", count);
+
+    char **arrstr = ft_split(str, ',');
+    if (arrstr)
+    {
+        for (int i = 0; arrstr[i] != NULL; i++)
+        {
+            printf("Word %d: %s\n", i + 1, arrstr[i]);
+            free(arrstr[i]);
+        }
+        free(arrstr);
+    }
+
+    return 0;
 }
