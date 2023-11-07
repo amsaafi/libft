@@ -19,11 +19,13 @@ int ft_count_words(const char *str, char sep)
     
     i = 0;
     count = 0;
+    if(!str[i])
+        return(count);
     while(str[i] && str[i] == sep)
         i++;
     while(str[i])
     {
-        if((str[i] && str[i] == sep) && str[i + 1] != sep)
+        if(((str[i] && str[i] == sep) && str[i + 1] != sep) || str[i + 1] == '\0')
             count++;
         i++;
     }
@@ -68,8 +70,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	arrstr = ft_calloc(count + 1, sizeof(char *));
-	if (!s)
-		return (0);
+	if (!arrstr)
+		return (NULL);
 	ft_spilt_words(s, c, arrstr, count);
 	return (arrstr);
 }
