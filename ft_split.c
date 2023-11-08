@@ -67,6 +67,7 @@ char	**ft_split(char const *s, char c)
 	int		count;
 	int i;
 
+	i = 0;
 	count = ft_count_words(s, c);
 	if (!s)
 		return (0);

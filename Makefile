@@ -30,6 +30,7 @@ SRC = ft_atoi.c \
 		ft_toupper.c \
 		ft_substr.c \
 		ft_split.c \
+		ft_itoa.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -24,7 +24,6 @@ static int is_negative(int n)
 char *ft_itoa(int n)
 {
     int len;
-    int temp;
     int sign;
     char *str;
     
