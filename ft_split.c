@@ -65,6 +65,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arrstr;
 	int		count;
+	int i;
 
 	count = ft_count_words(s, c);
 	if (!s)
@@ -73,25 +74,14 @@ char	**ft_split(char const *s, char c)
 	if (!arrstr)
 		return (NULL);
 	ft_spilt_words(s, c, arrstr, count);
-	return (arrstr);
-}
-
-int main() {
-    const char str[] = ",,,,,,,,,,,,,,,,,,,,abc,,,,,,,,,,,,,,,,helloworld,,,test, hello, this,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,";
-
-    int count = ft_count_words(str, ',');
-    printf("Number of words: %d\n", count);
-
-    char **arrstr = ft_split(str, ',');
-    if (arrstr)
-    {
-        for (int i = 0; arrstr[i] != NULL; i++)
+	if (!ft_spilt_words(s, c, arrstr, count)) 
+	{
+        while (i < count)
         {
-            printf("Word %d: %s\n", i + 1, arrstr[i]);
             free(arrstr[i]);
         }
         free(arrstr);
+        return (NULL);
     }
-
-    return 0;
+	return (arrstr);
 }
