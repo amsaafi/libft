@@ -21,12 +21,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	byte_dest = (unsigned char *)dest;
 	byte_src = (unsigned char *)src;
 	if (dest == src)
-        return (dest);
+		return (dest);
 	i = 0;
 	while (i < n)
 	{
 		byte_dest[i] = byte_src[i];
 		i++;
 	}
-	return(dest);
+	return (dest);
 }

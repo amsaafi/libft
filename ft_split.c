@@ -12,27 +12,28 @@
 
 #include "libft.h"
 
-int ft_count_words(const char *str, char sep)
+static int	ft_count_words(const char *str, char sep)
 {
-    int i;
-    int count;
-    
-    i = 0;
-    count = 0;
-    if(!str[i])
-        return(count);
-    while(str[i] && str[i] == sep)
-        i++;
-    while(str[i])
-    {
-        if(((str[i] && str[i] == sep) && str[i + 1] != sep) || str[i + 1] == '\0')
-            count++;
-        i++;
-    }
-    return (count);
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	if (!str[i])
+		return (count);
+	while (str[i] && str[i] == sep)
+		i++;
+	while (str[i])
+	{
+		if (((str[i] && str[i] == sep) && str[i + 1] != sep) || str[i
+				+ 1] == '\0')
+			count++;
+		i++;
+	}
+	return (count);
 }
 
-char	**ft_spilt_words(char const *s, char c, char **str, int count)
+static char	**ft_spilt_words(char const *s, char c, char **str, int count)
 {
 	int	i;
 	int	j;
@@ -65,7 +66,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arrstr;
 	int		count;
-	int i;
+	int		i;
 
 	i = 0;
 	count = ft_count_words(s, c);
@@ -75,14 +76,14 @@ char	**ft_split(char const *s, char c)
 	if (!arrstr)
 		return (NULL);
 	ft_spilt_words(s, c, arrstr, count);
-	if (!ft_spilt_words(s, c, arrstr, count)) 
+	if (!ft_spilt_words(s, c, arrstr, count))
 	{
-        while (i < count)
-        {
-            free(arrstr[i]);
-        }
-        free(arrstr);
-        return (NULL);
-    }
+		while (i < count)
+		{
+			free(arrstr[i]);
+		}
+		free(arrstr);
+		return (NULL);
+	}
 	return (arrstr);
 }
