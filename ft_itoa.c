@@ -27,37 +27,29 @@ static int	ft_count(int n)
 	return (i);
 }
 
-static int	is_negative(int n)
-{
-	if (n < 0)
-		return (n);
-	return (0);
-}
-
 char	*ft_itoa(int n)
 {
-	int		len;
-	int		sign;
-	char	*str;
+	char		*str_num;
+	int			len;
+	long int	num;
 
+	num = n;
 	len = ft_count(n);
-	sign = 1;
-	if (is_negative(n))
+	if (n < 0)
 	{
+		num *= -1;
 		len++;
-		sign *= -1;
-		n *= -1;
 	}
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (!str)
+	str_num = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str_num)
 		return (NULL);
-	str[len] = '\0';
+	str_num[len] = 0;
 	while (--len >= 0)
 	{
-		str[len] = (n % 10) + '0';
-		n /= 10;
+		str_num[len] = num % 10 + '0';
+		num = num / 10;
 	}
-	if (sign == -1)
-		str[0] = '-';
-	return (str);
+	if (n < 0)
+		str_num[0] = '-';
+	return (str_num);
 }
