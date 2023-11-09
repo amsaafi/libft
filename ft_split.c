@@ -66,24 +66,13 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arrstr;
 	int		count;
-	int		i;
 
-	i = 0;
 	count = ft_count_words(s, c);
 	if (!s)
 		return (0);
-	arrstr = ft_calloc(count + 1, sizeof(char *));
+	arrstr = malloc((count + 1) * sizeof(char *));
 	if (!arrstr)
-		return (NULL);
+		return (0);
 	ft_spilt_words(s, c, arrstr, count);
-	if (!ft_spilt_words(s, c, arrstr, count))
-	{
-		while (i < count)
-		{
-			free(arrstr[i]);
-		}
-		free(arrstr);
-		return (NULL);
-	}
 	return (arrstr);
 }
