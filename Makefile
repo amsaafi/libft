@@ -38,15 +38,23 @@ SRC = ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 
+BSRC = ft_lstnew.c \
+
+
 OBJ = $(SRC:.c=.o)
+
+BOBJ = $(BSRC:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	ar -rc $(NAME) $(OBJ)
 
+bonus : $(BOBJ)
+	ar -rc $(NAME) $(BOBJ)
+
 clean : 
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(BOBJ)
 
 fclean : clean
 	rm -rf $(NAME)
