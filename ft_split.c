@@ -73,6 +73,6 @@ char	**ft_split(char const *s, char c)
 	arrstr = malloc((count + 1) * sizeof(char *));
 	if (!arrstr)
 		return (0);
-	ft_spilt_words(s, c, arrstr, count);
+	arrstr = ft_spilt_words(s, c, arrstr, count);
 	return (arrstr);
 }
