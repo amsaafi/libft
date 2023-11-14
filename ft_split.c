@@ -33,32 +33,43 @@ static int	ft_count_words(const char *str, char sep)
 	return (count);
 }
 
+static void	ft_free_substrings(char **str, int allocated)
+{
+	int	i;
+
+	i = 0;
+	while (i < allocated)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
 static char	**ft_spilt_words(char const *s, char c, char **str, int count)
 {
 	int	i;
-	int	j;
 	int	len_words;
 	int	start;
 
 	i = 0;
-	j = 0;
 	len_words = 0;
-	while (s[j] && i < count)
+	while (s[i] && len_words < count)
 	{
-		while (s[j] && s[j] == c)
-			j++;
-		start = j;
-		while (s[j] && s[j] != c)
+		while (s[i] && s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		str[len_words] = malloc(sizeof(char) * ((i - start) + 1));
+		if (!str[len_words])
 		{
-			j++;
-			len_words++;
+			ft_free_substrings(str, len_words);
+			return (NULL);
 		}
-		str[i] = ft_calloc(len_words + 1, sizeof(char));
-		ft_strlcpy(str[i], (s + start), len_words + 1);
-		len_words = 0;
-		i++;
+		ft_strlcpy(str[len_words++], s + start, (i - start) + 1);
 	}
-	str[i] = 0;
+	str[len_words] = 0;
 	return (str);
 }
 
