@@ -12,17 +12,11 @@
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_concate(char const *s1, char const *s2, char *ptr)
 {
-	size_t	tlen;
 	size_t	i;
 	size_t	j;
-	char	*ptr;
 
-	tlen = (ft_strlen(s1) + ft_strlen(s2)) + 1;
-	ptr = malloc((char)tlen);
-	if (!ptr)
-		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 	{
@@ -37,5 +31,23 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	ptr[i] = '\0';
-	return (ptr);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	tlen;
+	char	*ptr;
+
+	if (s1 && s2)
+	{
+		tlen = (ft_strlen(s1) + ft_strlen(s2)) + 1;
+		ptr = malloc((char)tlen);
+		if (!ptr)
+			return (NULL);
+		ft_concate(s1, s2, ptr);
+		return (ptr);
+	}
+	else if (!s1 && s2)
+		return ((char *)s2);
+	return ((char *)s1);
 }

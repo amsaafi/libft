@@ -59,7 +59,13 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	ar -rc $(NAME) $(OBJ)
 
+$(OBJ) : $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC)
+
 bonus : $(BOBJ)
+
+$(BOBJ) : $(BSRC)
+	$(CC) $(CFLAGS) -c $(BSRC)
 	ar -rc $(NAME) $(BOBJ)
 
 clean : 
