@@ -41,7 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (s1 && s2)
 	{
 		tlen = (ft_strlen(s1) + ft_strlen(s2)) + 1;
-		ptr = malloc((char)tlen);
+		ptr = malloc(tlen);
 		if (!ptr)
 			return (NULL);
 		ft_concate(s1, s2, ptr);
