@@ -78,9 +78,9 @@ char	**ft_split(char const *s, char c)
 	char	**arrstr;
 	int		count;
 
-	count = ft_count_words(s, c);
 	if (!s)
 		return (0);
+	count = ft_count_words(s, c);
 	arrstr = malloc((count + 1) * sizeof(char *));
 	if (!arrstr)
 		return (0);

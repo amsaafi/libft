@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	if (!dest && !src)
 		return (NULL);
 	if (dest == src)
-		return (dest);
+		return ((void *)src);
 	byte_dest = (unsigned char *)dest;
 	byte_src = (unsigned char *)src;
 	i = 0;
