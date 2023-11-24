@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_check(char c, char const *set)
+static int	ft_check(char c, char const *set)
 {
 	int	i;
 
